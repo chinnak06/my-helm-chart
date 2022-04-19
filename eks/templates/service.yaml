@@ -1,0 +1,17 @@
+# service type loadbalancer       
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: hello-service
+    k8s-app: hello-service
+  name: hello-service
+spec:
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 8085
+  type: LoadBalancer
+  selector:
+    app: hello-service
